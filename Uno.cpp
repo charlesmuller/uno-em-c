@@ -6,8 +6,6 @@
 
 #define MAX 72
 
-Baralho *pilha_restante; // remaining cards to draw 
-
 typedef struct { //criação da struct carta 
     	int numero;
     	int cor;
@@ -113,8 +111,9 @@ void imprime_baralho(baralho p){ // Imprime a pilha
 	} 
 }
 
+/*
 int embaralhamento(int embaralhar) {
-
+	baralho *pilha_restante;
     // copia as cartas que sobraram da pilha para um array de cartas
     baralho *atual = pilha_restante;
     carta *array = malloc(sizeof(carta)*embaralhar);
@@ -136,8 +135,8 @@ int embaralhamento(int embaralhar) {
 
     // coloca cartas do array de volta na pilha_restante
     atual = pilha_restante;
-    for (int i=0; i<length-1; i++) {
-        atual->carta = array[i];
+    for (int i=0; i<embaralhar-1; i++) {
+        atual-> carta = array[i];
         atual = atual->next;
     }
     
@@ -148,7 +147,7 @@ int embaralhamento(int embaralhar) {
     return 0;
 }
                  	
-	
+*/	
 
 int main(){
 	carta c[MAX];
@@ -157,7 +156,7 @@ int main(){
 	int numero=0;
 	int count=0;
 	
-	for(cor=0;cor<=4;cor++){
+	for(cor=0;cor<4;cor++){
 		for(numero=0;numero<10;numero++){
 			c[count].cor=cor;
 			c[count].numero=numero;
@@ -165,7 +164,7 @@ int main(){
 		}
 	}
 	
-	for(cor=0;cor<=4;cor++){
+	for(cor=0;cor<4;cor++){
 		c[count].cor=cor;
 		c[count].numero=15;
 		count++;
@@ -173,7 +172,7 @@ int main(){
 		c[count].numero=15;
 		count++;
 	}
-	for(cor=0;cor<=4;cor++){
+	for(cor=0;cor<4;cor++){
 		c[count].cor=cor;
 		c[count].numero=16;
 		count++;
@@ -181,7 +180,7 @@ int main(){
 		c[count].numero=16;
 		count++;
 	}
-	for(cor=0;cor<=4;cor++){
+	for(cor=0;cor<4;cor++){
 		c[count].cor=cor;
 		c[count].numero=17;
 		count++;
@@ -189,22 +188,19 @@ int main(){
 		c[count].numero=17;
 		count++;
 	}
-	for(i=0;i<=4;i++){
+	for(i=0;i<4;i++){
 		c[count].cor=4;
 		c[count].numero=18;
 		count++;
 	}
-	for(i=0;i<=4;i++){
+	for(i=0;i<4;i++){
 		c[count].cor=4;
 		c[count].numero=19;
 		count++;
 	}
 		
 	count=0;
-	
-	
-	
-	
+		
 	for(count=0;count<MAX;count++){
 		printf("Numero: %i \nCor: %i \n", c[count].numero, c[count].cor);
 	}
