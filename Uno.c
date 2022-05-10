@@ -6,7 +6,7 @@
 
 #define MAX 72
 
-typedef struct  { //criação da struct carta 
+typedef struct  { //criaï¿½ï¿½o da struct carta 
     	int numero;
     	int cor;
     	/*
@@ -31,13 +31,13 @@ typedef struct {  // cria o baralho
     carta c[MAX];
 } baralho;
 
-struct Lista {  // Criação da Lista em struct (lista simplesmente encadeada) mão
+struct Lista {  // Criaï¿½ï¿½o da Lista em struct (lista simplesmente encadeada) mï¿½o
  carta c;
  struct Lista* prox;
 };
 typedef struct Lista lista;
 
-int pilha_vazia(baralho *p){ // Verifica se o baralho está vazio
+int pilha_vazia(baralho *p){ // Verifica se o baralho estï¿½ vazio
     if(p->topo == -1){
         return 1;
     }else{
@@ -45,7 +45,7 @@ int pilha_vazia(baralho *p){ // Verifica se o baralho está vazio
     }
 }
 
-int pilha_cheia(baralho *p){  // Verifica se baralho está cheio
+int pilha_cheia(baralho *p){  // Verifica se baralho estï¿½ cheio
     if(p->topo == MAX-1){
         return 1;
     }else{
@@ -132,6 +132,7 @@ void Embaralha(carta *c, unsigned char max)
     x=rand()%MAX;
     //faz a troca de cartas
     Troca(&c[i],&c[x]);
+	printf("%i %i", i, x);
   }
 }
 
@@ -190,4 +191,6 @@ int main(){
 	for(count=0;count<MAX;count++){
 		printf("Numero: %i \nCor: %i \n", c[count].numero, c[count].cor);
 	}
+
+	Embaralha(c, MAX);
 }
