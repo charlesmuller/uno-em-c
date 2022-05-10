@@ -112,7 +112,7 @@ void imprime_baralho(baralho p){ // Imprime a pilha
 }
 
 
-//troca uma carta pela outra para não repetir a carta anterior
+//troca uma carta pela outra para embaralhar
 void Troca(carta *o, carta *d)
 {
   carta aux;
