@@ -111,43 +111,26 @@ void imprime_baralho(baralho p){ // Imprime a pilha
 	} 
 }
 
-/*
-int embaralhamento(int embaralhar) {
-	baralho *pilha_restante;
-    // copia as cartas que sobraram da pilha para um array de cartas
-    baralho *atual = pilha_restante;
-    carta *array = malloc(sizeof(carta)*embaralhar);
-    /*if (array==NULL) {
-      libera_baralho(pilha_restante);
-      return 1;
-    }
-    for (int i=0; i< embaralhar; i++) {
-        array[i] = atual->c;
-        atual = atual->next;
-    }
-    
-    // fazendo loop no array de cartas e entregando aleatóriamente
-    for (int i=0; i<embaralhar; i++) {
-        // procura uma inicial aleatória para trocar com a atual
-        int aleatoria_inicial = rand() % (embaralhar-i) +i;
-        troca(&array[aleatoria_inicial],&array[i]);
-    }
-
-    // coloca cartas do array de volta na pilha_restante
-    atual = pilha_restante;
-    for (int i=0; i<embaralhar-1; i++) {
-        atual-> c = array[i];
-        atual = atual->next;
-    }
-    
-	// para ter certeza que há espaço na memória para o novo baralho, colocado o ultimo elemento para dar null
-    atual->carta = array[embaralhar-1];
-    atual->next = NULL;
-    free(array);
-    return 0;
+void Troca(carta *o, carta *d)
+{
+  carta aux;
+  aux=*o;
+  *o=*d;
+  *d=aux;
 }
-                 	
-*/
+
+void Embaralha(carta *c, unsigned char max)
+{
+  unsigned char i;
+  srand(time(NULL));
+  for(i=0; i<max; i++)
+  {
+    unsigned char x;
+    x=rand()%MAX;
+    /* Faz a troca de cartas */
+    Troca(&c[i],&c[x]);
+  }
+}
 
 int main(){
 	carta c[MAX];
