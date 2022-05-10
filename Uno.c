@@ -111,6 +111,8 @@ void imprime_baralho(baralho p){ // Imprime a pilha
 	} 
 }
 
+
+//troca uma carta pela outra para não repetir a carta anterior
 void Troca(carta *o, carta *d)
 {
   carta aux;
@@ -118,6 +120,7 @@ void Troca(carta *o, carta *d)
   *o=*d;
   *d=aux;
 }
+
 
 void Embaralha(carta *c, unsigned char max)
 {
@@ -127,7 +130,7 @@ void Embaralha(carta *c, unsigned char max)
   {
     unsigned char x;
     x=rand()%MAX;
-    /* Faz a troca de cartas */
+    //faz a troca de cartas
     Troca(&c[i],&c[x]);
   }
 }
